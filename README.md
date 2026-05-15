@@ -56,11 +56,11 @@ Momentum and low-vol are up-weighted because both derive purely from price data.
 
 | Strategy | What it does |
 |----------|-------------|
-| `baseline` | Equal-weight L/S, monthly |
-| `vol_target` | L/S + daily vol-targeting to 10% |
-| `long_only_vt` | Long top quintile + vol-target at benchmark vol |
-| `drawdown_aware` | L/S + vol-target + linear de-risking below −10% DD |
-| `combined` | Quarterly L/S + inv-vol weights + vol-target |
+| baseline | Equal-weight L/S, monthly |
+| vol_target | L/S + daily vol-targeting to 10% |
+| long_only_vt | Long top quintile + vol-target at benchmark vol |
+| drawdown_aware | L/S + vol-target + linear de-risking below −10% DD |
+| combined | Quarterly L/S + inv-vol weights + vol-target |
 
 **Walk-forward** — 3-year train, 1-year test, rolling forward. Strictly out-of-sample.
 
@@ -128,14 +128,14 @@ pytest tests/ -v
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
-| `START_DATE` | `2014-01-01` | Download start (extra year for momentum lookback) |
-| `BACKTEST_START` | `2015-01-01` | Backtest start |
-| `END_DATE` | `2024-12-31` | Backtest end |
-| `FEES_BPS` | `5` | One-way transaction cost (bps) |
-| `N_QUINTILES` | `5` | Portfolio construction quintiles |
-| `REBAL_FREQ` | `BME` | Monthly rebalancing |
-| `TRAIN_YEARS` | `3` | Walk-forward training window |
-| `TEST_YEARS` | `1` | Walk-forward test window |
+| START_DATE | 2014-01-01 | Download start (extra year for momentum lookback) |
+| BACKTEST_START | 2015-01-01 | Backtest start |
+| END_DATE | 2024-12-31 | Backtest end |
+| FEES_BPS | 5 | One-way transaction cost (bps) |
+| N_QUINTILES | 5 | Portfolio construction quintiles |
+| REBAL_FREQ | BME | Monthly rebalancing |
+| TRAIN_YEARS | 3 | Walk-forward training window |
+| TEST_YEARS | 1 | Walk-forward test window |
 
 ---
 
@@ -145,8 +145,3 @@ pytest tests/ -v
 - **Point-in-time fundamentals** — yfinance returns the latest P/B and ROE, not historical snapshots. Value and quality signals have mild look-ahead bias.
 - **Transaction costs** — fixed at 5 bps; real costs vary with liquidity and order size.
 
----
-
-## License
-
-MIT
